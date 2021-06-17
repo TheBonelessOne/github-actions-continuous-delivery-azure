@@ -3,8 +3,6 @@ name: Stage the app
 on: 
   pull_request:
     types: [labeled]
-    
-if: contains(github.event.pull_request.labels.*.name, 'peacock')
 
 env:
   DOCKER_IMAGE_NAME: TheBonelessOne-azure-ttt
@@ -20,3 +18,5 @@ env:
   jobs:
   build:
     runs-on: ubuntu-latest
+
+    if: contains(github.event.pull_request.labels.*.name, 'peacock')
